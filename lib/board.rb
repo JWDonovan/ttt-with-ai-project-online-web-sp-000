@@ -17,6 +17,10 @@ class Board
     puts " #{cells[6]} | #{cells[7]} | #{cells[8]} "
   end
 
+  def position(input)
+    cells[input.to_i - 1]
+  end
+
   def full?
     cells.all?{|token| token == "X" || token == "O"}
   end
@@ -31,10 +35,6 @@ class Board
 
   def update(input, player)
     cells[input.to_i-1] = player.token
-  end
-
-  def position(input)
-    cells[input.to_i-1]
   end
 
   def taken?(input)
