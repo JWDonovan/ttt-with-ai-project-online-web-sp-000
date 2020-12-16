@@ -20,14 +20,19 @@ class Computer < Player
     if !board.taken?(5)
     else
       Game::WIN_COMBINATIONS.detect do |combo|
-        if combo.select do |index|
-          board.position(i + index) == @token
-        end.size == 2 && combo.any? do |i|
-          board.position(i + 1) == " "
+        if cmb.select{|i| board.position(i+1) == token}.size == 2 && cmb.any?{|i| board.position(i+1) == " "}
+          move = cmb.select{|i| !board.taken?(i+1)}.first.to_i.+(1).to_s
+
+        elsif cmb.select{|i| board.position(i+1) != " " && board.position(i+1) != token}.size == 2 && cmb.any?{|i| board.position(i+1) == " "}
+          move = cmb.select{|i| !board.taken?(i+1)}.first.to_i.+(1).to_s
         end
       end
+
+      move = [1, 3, 7, 9, 2, 4, 6, 8].detect do |i|
+        !board.taken?(i)
+      end.to_s if move == nil
     end
 
-    move
+      move
   end
 end
