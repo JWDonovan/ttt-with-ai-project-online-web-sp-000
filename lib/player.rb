@@ -28,9 +28,9 @@ class Computer < Player
         end
       end
 
-      move = [1, 3, 7, 9, 2, 4, 6, 8].detect do |i|
-        !board.taken?(i)
-      end.to_s if move == nil
+      move = [1, 3, 7, 9, 2, 4, 6, 8].detect do |index|
+        !board.taken?(index)
+      end if move == nil
     end
 
       move
