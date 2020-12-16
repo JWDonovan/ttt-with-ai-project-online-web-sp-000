@@ -20,4 +20,10 @@ class Board
   def position(input)
     @cells[input.to_i - 1]
   end
+
+  def full?
+    @cells.all? do |cell|
+      cell.taken?
+    end
+  end
 end
