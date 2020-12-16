@@ -32,4 +32,8 @@ class Board
       cell == "X" || cell == "O"
     end
   end
+
+  def taken?(position)
+    cell[position] == "X" || cell == "0"
+  end
 end
