@@ -23,7 +23,7 @@ class Board
 
   def full?
     @cells.all? do |cell|
-      cell.taken?
+      cell == "X" || cell == "O"
     end
   end
 end
