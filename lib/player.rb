@@ -33,7 +33,9 @@ class Computer < Player
         end.size == 2 && combo.any? do |index|
           board.position(index + 1) == " "
         end
-          move = cmb.select{|i| !board.taken?(i+1)}.first.to_i.+(1).to_s
+          move = combo.select do |index|
+            !board.taken?(index + 1)
+          end.first.to_i.+(1).to_s
         end
       end
 
