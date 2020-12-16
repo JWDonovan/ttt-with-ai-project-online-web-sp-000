@@ -14,3 +14,12 @@ class Human < Player
 end
 
 class Computer < Player
+  def move(board)
+    move = nil
+
+    if !board.taken?(5)
+    end
+
+    move
+  end
+end
