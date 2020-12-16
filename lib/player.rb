@@ -18,6 +18,14 @@ class Computer < Player
     move = nil
 
     if !board.taken?(5)
+    else
+      Game::WIN_COMBINATIONS.detect do |combo|
+        if combo.select do |index|
+          board.position(i + index) == @token
+        end.size == 2 && combo.any? do |i|
+          board.position(i + 1) == " "
+        end
+      end
     end
 
     move
