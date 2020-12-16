@@ -28,7 +28,9 @@ class Board
   end
 
   def turn_count
-    cells.count{|token| token == "X" || token == "O"}
+    cells.count do |token|
+      token == "X" || token == "O"
+    end
   end
 
   def valid_move?(input)
