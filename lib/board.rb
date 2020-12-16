@@ -40,4 +40,8 @@ class Board
   def valid_move?(position)
     position.between?(1, 9) && !taken?(position)
   end
+
+  def update(position, player)
+
+  end
 end
