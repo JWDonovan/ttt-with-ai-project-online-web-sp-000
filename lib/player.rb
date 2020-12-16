@@ -20,7 +20,11 @@ class Computer < Player
     if !board.taken?(5)
     else
       Game::WIN_COMBINATIONS.detect do |combo|
-        if combo.select{|index| board.position(index + 1) == token}.size == 2 && combo.any?{|index| board.position(i + 1) == " "}
+        if combo.select do |index|
+          board.position(index + 1) == token
+        end.size == 2 && combo.any? do |index|
+          board.position(i + 1) == " "
+        end
           move = combo.select do |index|
             !board.taken?(index + 1)
           end.first.to_i.+(1).to_s
