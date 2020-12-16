@@ -26,4 +26,10 @@ class Board
       cell == "X" || cell == "O"
     end
   end
+
+  def turn_count
+    cells.count do |cell|
+      cell == "X" || cell == "O"
+    end
+  end
 end
