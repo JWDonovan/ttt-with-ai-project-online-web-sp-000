@@ -12,3 +12,5 @@ class Human < Player
     input = gets.strip.to_i
   end
 end
+
+class Computer < Player
