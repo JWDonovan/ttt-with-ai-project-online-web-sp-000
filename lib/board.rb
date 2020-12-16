@@ -38,6 +38,6 @@ class Board
   end
 
   def valid_move?(position)
-    position.between?(1, 9) && !taken?
+    position.between?(1, 9) && !taken?(position)
   end
 end
