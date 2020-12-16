@@ -1,12 +1,12 @@
 class Board
   attr_accessor :cells
 
-  def initialize
+  def initialize()
     reset!
   end
 
   def reset!
-    @cells = Array.new[9, " "]
+    @cells = Array.new(9, " ")
   end
 
   def display
@@ -17,31 +17,27 @@ class Board
     puts " #{cells[6]} | #{cells[7]} | #{cells[8]} "
   end
 
-  def position(input)
-    @cells[input.to_i - 1]
-  end
-
   def full?
-    @cells.all? do |cell|
-      cell == "X" || cell == "O"
-    end
+    cells.all?{|token| token == "X" || token == "O"}
   end
 
   def turn_count
-    cells.count do |cell|
-      cell == "X" || cell == "O"
-    end
+    cells.count{|token| token == "X" || token == "O"}
   end
 
-  def taken?(position)
-    cell[position] == "X" || cell == "0"
+  def valid_move?(input)
+    input.to_i.between?(1,9) && !taken?(input)
   end
 
-  def valid_move?(position)
-    position.between?(1, 9) && !taken?(position)
+  def update(input, player)
+    cells[input.to_i-1] = player.token
   end
 
-  def update(position, player)
-    cells[position - 1] = player.token
+  def position(input)
+    cells[input.to_i-1]
+  end
+
+  def taken?(input)
+    !(position(input) == " " || position(input) == "")
   end
 end
