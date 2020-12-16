@@ -29,7 +29,9 @@ module Players
           end.size == 2 && combo.any? do |index|
             board.position(index + 1) == " "
           end
-            move = combo.select{|i| !board.taken?(i+1)}.first.to_i.+(1).to_s
+            move = combo.select do |index|
+              !board.taken?(index + 1)
+            end.first.to_i.+(1).to_s
           end
         end
         move = [1, 3, 7, 9, 2, 4, 6, 8].detect{|i| !board.taken?(i)}.to_s if move == nil
