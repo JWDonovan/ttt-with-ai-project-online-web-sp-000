@@ -30,6 +30,10 @@ class Game
     end
   end
 
+  def draw?
+    @board.full? && !won?
+  end
+
   def over?
     won? || draw?
   end
@@ -64,9 +68,5 @@ class Game
     elsif draw?
       puts "Cat's Game!"
     end
-  end
-
-  def draw?
-    @board.full? && !won?
   end
 end
