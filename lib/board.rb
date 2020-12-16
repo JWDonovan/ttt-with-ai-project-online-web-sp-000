@@ -36,4 +36,8 @@ class Board
   def taken?(position)
     cell[position] == "X" || cell == "0"
   end
+
+  def valid_move?(position)
+    position > 0 && position < 10 && taken?
+  end
 end
