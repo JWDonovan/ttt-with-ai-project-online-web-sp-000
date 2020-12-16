@@ -20,6 +20,7 @@ class Computer < Player
     if !board.taken?(5)
       move = 5
     elsif board.turn_count == 1
+      move = 1
     else
       Game::WIN_COMBINATIONS.detect do |combo|
         if combo.select do |index|
