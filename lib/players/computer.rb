@@ -24,7 +24,11 @@ module Players
             move = combo.select do |index|
               !board.taken?(index + 1)
             end.first.to_i.+(1).to_s
-          elsif combo.select{|i| board.position(i+1) != " " && board.position(i+1) != token}.size == 2 && combo.any?{|i| board.position(i+1) == " "}
+          elsif combo.select do |index|
+            board.position(index + 1) != " " && board.position(index + 1) != token
+          end.size == 2 && combo.any? do |index|
+            board.position(index + 1) == " "
+          end
             move = combo.select{|i| !board.taken?(i+1)}.first.to_i.+(1).to_s
           end
         end
