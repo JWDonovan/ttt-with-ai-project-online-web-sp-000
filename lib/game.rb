@@ -54,6 +54,10 @@ class Game
       puts "Turn: #{@board.turn_count + 1}"
       @board.display
       @board.update(move, player)
+
+      puts "#{player.token} moved #{move}"
+      @board.display
+      puts "\n\n"
     end
   end
 end
