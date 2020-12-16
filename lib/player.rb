@@ -33,6 +33,6 @@ class Computer < Player
       end if move == nil
     end
 
-      move
+    move
   end
 end
