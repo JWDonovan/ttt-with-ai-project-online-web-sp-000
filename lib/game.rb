@@ -52,6 +52,8 @@ class Game
       turn
     else
       puts "Turn: #{@board.turn_count + 1}"
+      @board.display
+      @board.update(move, player)
     end
   end
 end
