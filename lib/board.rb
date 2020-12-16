@@ -34,7 +34,6 @@ class Board
   end
 
   def taken?(input)
-    #!(position(input) == " " || position(input) == "")
     position(input) == "X" || position(input) == "O"
   end
 
@@ -43,6 +42,6 @@ class Board
   end
 
   def update(input, player)
-    cells[input.to_i-1] = player.token
+    cells[input.to_i - 1] = player.token
   end
 end
