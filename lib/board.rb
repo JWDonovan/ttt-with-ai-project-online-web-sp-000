@@ -42,6 +42,6 @@ class Board
   end
 
   def update(position, player)
-
+    cells[position - 1] = player.token
   end
 end
